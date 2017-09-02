@@ -193,8 +193,13 @@ $("#add-name").on("click", function(event) {
 				choice: ""
 			};
 
+			// Add Player Name To Title
+			$("#title").html("Multi-Player RPS!-" + yourPlayerName + "");
+
 			// Add player1 to the database
 			database.ref().child("/players/p1").set(p1);
+
+
 
 
 			// Set the turn value to 1, as player1 goes first
@@ -214,6 +219,9 @@ $("#add-name").on("click", function(event) {
 				tie: 0,
 				choice: ""
 			};
+
+			// Add Player Name To Title
+			$("#title").html("Multi-Player RPS!-" + yourPlayerName + "");
 
 			// Add player2 to the database
 			database.ref().child("/players/p2").set(p2);
@@ -285,7 +293,7 @@ $("#playerPanel2").on("click", ".panelOption", function(event) {
 
 		// Record the player choice into the database
 		p2Choice = choice;
-		database.ref().child("//p2/choice").set(choice);
+		database.ref().child("/players/p2/choice").set(choice);
 
 		// Compare player1 and player 2 choices and record the outcome
 		rpsCompare();
